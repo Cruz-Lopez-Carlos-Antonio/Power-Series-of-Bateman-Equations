@@ -8,7 +8,7 @@ clear; clc;
 % a linear transmutation/decay chain when repeated decay constants are
 % present. The implementation follows a grouped representation in which
 % identical decay constants are collected into a single value lambda_i with
-% multiplicity mu_i + 1.
+% multiplicity mu_i + 1. (see Cruz-López et al., 2024, Annals of Nuclear Energy)
 %
 % In the notation used in the associated manuscript, the implemented
 % structure is essentially
@@ -40,6 +40,7 @@ clear; clc;
 % Half-lives defining the decay constants lambda = log(2)/T. Repeated
 % half-lives lead to repeated decay constants and are therefore represented
 % through multiplicities in the grouped formula.
+
 Half_lifes = [2, 2, 3, 3, 3, 4];
 D = log(2) ./ Half_lifes;
 
@@ -48,6 +49,7 @@ D = log(2) ./ Half_lifes;
 %      cancellation.
 %   2) Very small times, where cancellation and round-off errors become
 %      visible in standard double precision.
+
 %Time_vector = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100];
 Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
                0.006, 0.007, 0.008, 0.009, 0.010];
@@ -72,6 +74,7 @@ disp(table(Time_vector(:), Xn_GPS(:), ...
 
 % Save the computed values in a plain text file, using high-precision
 % scientific notation to facilitate comparisons with Python or other codes.
+
 filename = 'Bateman_GPS_results_double.txt';
 fid = fopen(filename, 'w');
 fprintf(fid, 't\tXn_GPS\n');
