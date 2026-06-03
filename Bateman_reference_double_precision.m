@@ -157,7 +157,7 @@ function solution = GPS(X0, DC, t)
             L = partitions_restricted(Mu(i) - ell, length(Au2));
 
             % Compute chi_{i,mu_i-ell}.
-            z2 = chi(i, Mu(i) - ell, Mu, Au1, L);
+            z2 = chi(i, Mu, Au1, L);
 
             s2 = s2 + z1 * z2;
         end
@@ -215,7 +215,7 @@ function L = partitions_rec(m, n)
     end
 end
 
-function c = chi(i, ~, Mu, Lambd, L)
+function c = chi(i, Mu, Lambd, L)
     % chi evaluates the coefficient chi_{i,r}.
     %
     % Inputs:
