@@ -133,7 +133,7 @@ function solution = GPS(X0, DC, t)
         % the lists of grouped decay constants and multiplicities.
         %
         % This is the MATLAB counterpart of the mathematical products over
-        % all indices except i.
+        % all indices except i used in the original Python implementation
         Au2  = Au1([1:i-1, i+1:end]);
         Mu_m = Mu([1:i-1, i+1:end]);
 
