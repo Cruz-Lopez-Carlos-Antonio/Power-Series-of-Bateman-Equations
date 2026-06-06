@@ -55,6 +55,7 @@ Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
                0.006, 0.007, 0.008, 0.009, 0.010];
 
 % Initial number of atoms/nuclei in the first member of the chain.
+%proposed originally by Dreher (Annals of Nuclear Energy 53 (2013))
 X0 = 6.023e23;
 
 % Preallocate the output vector.
