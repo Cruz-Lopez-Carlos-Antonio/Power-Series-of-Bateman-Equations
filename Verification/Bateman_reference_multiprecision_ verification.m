@@ -56,9 +56,9 @@ digits(mp_digits);
 %   2) Very small times, where cancellation and round-off errors become
 %      visible in standard double precision.
 
-%Time_vector = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100];
-Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
-               0.006, 0.007, 0.008, 0.009, 0.010];
+Time_vector = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100];
+%Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
+               %0.006, 0.007, 0.008, 0.009, 0.010];
 
 % Initial number of atoms/nuclei in the first member of the chain.
 %proposed originally by Dreher (Annals of Nuclear Energy 53 (2013))
