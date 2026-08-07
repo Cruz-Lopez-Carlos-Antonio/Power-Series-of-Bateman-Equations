@@ -42,7 +42,7 @@ clear; clc;
 % half-lives lead to repeated decay constants and are therefore represented
 % through multiplicities in the grouped formula.
 
-Half_lifes = [2, 2, 3, 3, 3, 4];
+Half_lifes = [2, 2, 3, 3, 3, 4, 4, 4, 4];
 D = log(2) ./ Half_lifes;
 
 % Number of significant decimal digits used by MATLAB symbolic arithmetic.
