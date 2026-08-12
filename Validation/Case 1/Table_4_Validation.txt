@@ -3,21 +3,21 @@
 \footnotesize
 \caption{Concentration values evaluated at extremely small times ($t \to 0$) with 16-digit precision, comparing the numerical stability of power-series formulations against the catastrophic cancellation observed in Laplace-based methods.}
 \label{tab:small_times_comparison}
-\begin{tabular}{llll}
+\begin{tabular}{lllll}
 \hline
-\rowcolor{gray!20} \rule{0pt}{14pt} $t$ & Classic Series & Developed solution & Laplace (GPS) \\
-\rowcolor{gray!20}{} [s] & & (Mittag--Leffler) & \\[4pt]
+\rowcolor{gray!20} \rule{0pt}{14pt} $t$ & Classic Series & Developed solution & Velhinho's method & Laplace (GPS) \\
+\rowcolor{gray!20}{} [s] & & (Mittag--Leffler) & & \\[4pt]
 \hline
-\rule{0pt}{14pt}$1 \times 10^{-3}$ & $7.43399528\times 10^{3}$ & $7.43399528\times 10^{3}$ & $-5.19393560\times 10^{10}$ \\
-\rule{0pt}{14pt}$2 \times 10^{-3}$ & $2.37826023\times 10^{5}$ & $2.37826023\times 10^{5}$ & $-5.19393560\times 10^{10}$ \\
-\rule{0pt}{14pt}$3 \times 10^{-3}$ & $1.80552199\times 10^{6}$ & $1.80552199\times 10^{6}$ & $-5.19393560\times 10^{10}$ \\
-\rule{0pt}{14pt}$4 \times 10^{-3}$ & $7.60647742\times 10^{6}$ & $7.60647742\times 10^{6}$ & $-7.79090340\times 10^{10}$ \\
-\rule{0pt}{14pt}$5 \times 10^{-3}$ & $2.32070940\times 10^{7}$ & $2.32070940\times 10^{7}$ & $-7.79090340\times 10^{10}$ \\
-\rule{0pt}{14pt}$6 \times 10^{-3}$ & $5.77316681\times 10^{7}$ & $5.77316681\times 10^{7}$ & $-5.19393560\times 10^{10}$ \\
-\rule{0pt}{14pt}$7 \times 10^{-3}$ & $1.24748453\times 10^{8}$ & $1.24748453\times 10^{8}$ & $-5.19393560\times 10^{10}$ \\
-\rule{0pt}{14pt}$8 \times 10^{-3}$ & $2.43154337\times 10^{8}$ & $2.43154337\times 10^{8}$ & $-1.03878712\times 10^{11}$ \\
-\rule{0pt}{14pt}$9 \times 10^{-3}$ & $4.38058133\times 10^{8}$ & $4.38058133\times 10^{8}$ & $-1.03878712\times 10^{11}$ \\
-\rule{0pt}{14pt}$1 \times 10^{-2}$ & $7.41662494\times 10^{8}$ & $7.41662494\times 10^{8}$ & $-5.19393560\times 10^{10}$ \\
+\rule{0pt}{14pt}$1 \times 10^{-3}$ & $7.43399528\times 10^{3}$ & $7.43399528\times 10^{3}$ & $\phantom{-}1.18413837\times 10^{9}$ & $-5.19393560\times 10^{10}$ \\
+$2 \times 10^{-3}$ & $2.37826023\times 10^{5}$ & $2.37826023\times 10^{5}$ & $\phantom{-}1.49068442\times 10^{9}$ & $-5.19393560\times 10^{10}$ \\
+$3 \times 10^{-3}$ & $1.80552199\times 10^{6}$ & $1.80552199\times 10^{6}$ & $\phantom{-}7.43629619\times 10^{9}$ & $-5.19393560\times 10^{10}$ \\
+$4 \times 10^{-3}$ & $7.60647742\times 10^{6}$ & $7.60647742\times 10^{6}$ & $-1.87885363\times 10^{9}$ & $-7.79090340\times 10^{10}$ \\
+$5 \times 10^{-3}$ & $2.32070940\times 10^{7}$ & $2.32070940\times 10^{7}$ & $\phantom{-}5.91058944\times 10^{9}$ & $-7.79090340\times 10^{10}$ \\
+$6 \times 10^{-3}$ & $5.77316681\times 10^{7}$ & $5.77316681\times 10^{7}$ & $\phantom{-}7.59192371\times 10^{9}$ & $-5.19393560\times 10^{10}$ \\
+$7 \times 10^{-3}$ & $1.24748453\times 10^{8}$ & $1.24748453\times 10^{8}$ & $\phantom{-}5.13878835\times 10^{9}$ & $-5.19393560\times 10^{10}$ \\
+$8 \times 10^{-3}$ & $2.43154337\times 10^{8}$ & $2.43154337\times 10^{8}$ & $-1.36273019\times 10^{10}$ & $-1.03878712\times 10^{11}$ \\
+$9 \times 10^{-3}$ & $4.38058133\times 10^{8}$ & $4.38058133\times 10^{8}$ & $-7.85391616\times 10^{8}$ & $-1.03878712\times 10^{11}$ \\
+$1 \times 10^{-2}$ & $7.41662494\times 10^{8}$ & $7.41662494\times 10^{8}$ & $-1.37092383\times 10^{10}$ & $-5.19393560\times 10^{10}$ \\
 \hline
 \end{tabular}
 \end{table}
