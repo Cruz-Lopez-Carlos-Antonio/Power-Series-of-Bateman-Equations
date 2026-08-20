@@ -25,8 +25,8 @@ b_eff = [
     9.15377e-1,...
     1.51134e-5];
 
-% Para esta cadena lineal U-235 -> ... -> Pu-239
-% usamos solo las ramas entre nodos consecutivos.
+% To this decay chain U-235 -> ... -> Pu-239
+% we use only the consecutive nodes
 branch_eff = b_eff(1:numel(chain)-1);
 
 DAYS = [ ...
