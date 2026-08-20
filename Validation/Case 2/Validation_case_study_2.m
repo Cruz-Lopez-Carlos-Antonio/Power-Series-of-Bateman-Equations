@@ -38,7 +38,7 @@ DAYS = [ ...
 Time_vector = DAYS * 24 * 3600;
 
 x10       = 6.89185e-4;
-dt_block  =  3600;   % 10 días por bloque
+dt_block  =  3600;   % Step hours by block
 Mmax      = 5;
 tol       = 1e-16;
 alpha_eps = 0.999999999999;
