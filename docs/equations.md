@@ -49,7 +49,7 @@ t^{m+\beta-1}E_{1,\beta}^{(m)}
 $$
 </div>
 
-where:
+where the coefficients $a_i$ depends on the lambda parameters as follows:
 
 $$
 a_0=1, \ \ a_k =
@@ -59,7 +59,7 @@ a_0=1, \ \ a_k =
 \prod_{j=1}^{k}\lambda_{i_j}.
 $$
 
-and where:
+and where the Mittag-Leffler function, $E_{\alpha,\beta}(z)$, is defined as
 
 $$
 E_{\alpha,\beta}(z)
@@ -78,8 +78,8 @@ E_{\alpha,\beta}^{(m)}(z)
 \,z^k=m!\,E_{\alpha,\beta+\alpha m}^{\,m+1}(z).
 $$
 
-Finally, this expression can be written in a more compact vectorial form:
-
+Finally, this expression can be written in a more compact vectorial form, which is very convenient to the computational implementation:
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
 x_n(t)=
 \frac{x_1(0)}{a_0}
@@ -91,8 +91,9 @@ x_n(t)=
 E_{1,\beta(\mathbf{k})}^{(|\mathbf{k}|)}
 \bigl(-\mu t\bigr).
 $$
-
+</div>
 ---
+w
 
 ## Validation
 
