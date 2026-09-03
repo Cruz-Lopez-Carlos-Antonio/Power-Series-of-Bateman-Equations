@@ -1,0 +1,18 @@
+title: Neutron Point Kinetics with Ramp Reactivity
+description: Analytical and numerical solutions of the NPKE with a linear reactivity ramp
+theme: minima
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Mantenemos las URLs con .html para que no haya sorpresas
+permalink: /:basename:output_ext
