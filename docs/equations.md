@@ -27,25 +27,25 @@ The analytical solution obtained for the aforementioned system is expressed as f
 
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
+\begin{equation}
 \begin{aligned}
-x_n(t) &= x_1(0)
-\left( \prod_{k=1}^{n-1}\lambda_k
-\right) \frac{1}{a_0} \sum_{m=0}^{\infty}
-(-1)^m \sum_{\substack{k_0+k_1+\cdots+k_{n-2}=m \\ k_0,k_1,\dots,k_{n-2}\geq 0}}
-\frac{m!}{k_0!\,k_1!\cdots k_{n-2}!}
+x_n(t)&=x_1(0)
+\left(\prod_{k=1}^{n-1}\lambda_k
+\right)
+\frac{1}{a_0}\sum_{m=0}^{\infty}
+(-1)^m\sum_{\substack{
+k_0+k_1+\cdots+k_{n-2}=m \\
+k_0,k_1,\ldots,k_{n-2}\geq 0
+}}\frac{1}{k_0!\,k_1!\cdots k_{n-2}!}
 \\[6pt]
 &\quad\times
-\left(\prod_{i=0}^{n-2}
-\left(\frac{a_{n-i}}{a_0}\right)^{k_i}\right)
-\mathcal{L}^{-1}
-\left\{
-\frac{
-s^{-(n-1)+\sum_{i=0}^{n-2}(i-(n-1))k_i}
-}{
-\left(s+\dfrac{a_1}{a_0}\right)^{m+1}
-}
-\right\}(t).
+\left(\prod_{i=0}^{n-2}\left(\frac{a_{n-i}}{a_0}
+\right)^{k_i}\right)
+t^{m+\beta-1}E_{1,\beta}^{(m)}
+\left(-\frac{a_1}{a_0}t\right),
 \end{aligned}
+\end{equation}
+%
 $$
 </div>
 
