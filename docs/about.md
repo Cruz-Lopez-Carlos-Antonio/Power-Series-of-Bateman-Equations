@@ -5,7 +5,7 @@ title: About
 
 ## Authors
 
-The present computational implementations and numerical validations accompany the manuscript: **"A Novel Power-Series Solution of the Bateman Equations Using the Mittag--Leffler Function"**.
+The present computational implementations and numerical validations accompany the manuscript: **"A Novel Power-Series Solution of the Bateman Equations Using the Mittag--Leffler Function"**, which was recently submitted to the journal *Annals of Nuclear Energy* (September 2026).
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem; margin-bottom: 2.5rem;">
 
@@ -18,6 +18,7 @@ The present computational implementations and numerical validations accompany th
       Universidad Internacional de La Rioja<br>
       Logroño, Spain
     </p>
+    <a href="mailto:marc.jornet@unir.net" style="font-size: 0.9rem; color: #4a90e2; text-decoration: none; font-weight: bold;">marc.jornet@unir.net</a>
   </div>
 
   <!-- Card Carlos -->
@@ -52,6 +53,7 @@ The present computational implementations and numerical validations accompany th
       Centro de Investigación en Matemáticas, A.C.<br>
       Guanajuato, México
     </p>
+    <a href="mailto:claudia.vidales@cimat.mx" style="font-size: 0.9rem; color: #4a90e2; text-decoration: none; font-weight: bold;">claudia.vidales@cimat.mx</a>
   </div>
 
 </div>
@@ -60,7 +62,7 @@ The present computational implementations and numerical validations accompany th
 
 ## Financial Support
 
-The authors appreciate the financial support received from the Consejo Nacional de Humanidades, Ciencia y Tecnología (CONAHCYT), under the program *Estancias Posdoctorales por México, 2022*, with the project entitled:
+The authors, Carlos Cruz and Gilberto Espinosa, appreciate the financial support received from the Consejo Nacional de Humanidades, Ciencia y Tecnología (CONAHCYT), under the program *Estancias Posdoctorales por México, 2022*, with the project entitled:
 
 > **“Desarrollo de modelos fenomenológicos energéticos de orden fraccional, para la optimización y simulación en reactores nucleares de potencia”**,  
 
