@@ -6,92 +6,94 @@ math: true
 # Overview of the methodology
 The present section contains the main equations used in the present work. Please, see the full manuscript for a more detailed description of them.
 
-## Neutron Point Kinetics Equations
-The Neutron Point Kinetic Equations with a single group of delayed neutron precursors are given as:
+## The Bateman Equations
+The system of differential equations describing the linear decay chain is given by:
 
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
-\begin{matrix}\dfrac{dn\left(t\right)}{dt}&=&\frac{\rho\left(t\right)-\beta}{\Lambda}n\left(t\right)+\lambda C\left(t\right)+q,\\\dfrac{dC\left(t\right)}{dt}&=&\frac{\beta}{\Lambda}n\left(t\right)-\lambda C\left(t\right).\\\end{matrix}\ .  
+\frac{dx_i(t)}{dt}
+=\lambda_{i-1} x_{i-1}(t)-\lambda_i x_i(t), \qquad 1 \le i \le n,
 $$
 </div>
 
-Here $$\Lambda$$ is the prompt generation time, $$\beta$$ is the total delayed neutron fraction and $$\lambda$$. In the present case, the ramp reactivity, $$\rho(t)$$ has the following linear form:
-
-<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
-$$
-\rho(t) = a t + b, \quad a>0.
-$$
-</div>
+Subject to the following initial conditions:
+$x_i(0)=0$, with $i=2,3,\dots,n$.
 
 ---
 
-## Modified Integration Method (MIM) 
+## Analytical Solution using the Mittag-Leffler Function
 
-The proposed solutions were developed using a more efficient, formal and advanced Modified Integration Method (MIM), originally developed by Smets (1957). Such procedure consists of assuming that analytical solutions have the following form:
+The analytical solution obtained for the aforementioned system is expressed as follows:
 
-$$
-n\left(t\right)=\int_{\Omega}{\bar{n}\left(s\right)e^{st}ds},\ \ C_i\left(t\right)=\int_{\Omega}{{\bar{C}}_i\left(s\right)e^{st}ds}$$
-
-## Integral Representation of $$n(t)$$
-
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
 \begin{aligned}
-n(t)=\;&
-K_{1}\,e^{-\lambda t}
-\int_0^\infty e^{-y^{2}/2+\mathcal{E}_{3}(t)\,y}\, y^{\lambda\beta/a}\,dy
-\\[4pt]
-&+K_{2}\,e^{-\lambda t}
-\int_0^\infty e^{-y^{2}/2-\mathcal{E}_{3}(t)\,y}\,y^{\lambda\beta/a}\,dy
-\\[4pt]
-&+B_{p,1}
-\int_0^\infty 
-\exp\!\left[
--\frac{1}{a}\left(\frac{\Lambda}{2}s^{2}+(\beta-b-at)s\right)
-\right]
-\,(s+\lambda)^{\lambda\beta/a}\,ds.
+x_n(t) &= x_1(0)
+\left( \prod_{k=1}^{n-1}\lambda_k
+\right) \frac{1}{a_0} \sum_{m=0}^{\infty}
+(-1)^m \sum_{\substack{k_0+k_1+\cdots+k_{n-2}=m \\ k_0,k_1,\dots,k_{n-2}\geq 0}}
+\frac{m!}{k_0!\,k_1!\cdots k_{n-2}!}
+\\[6pt]
+&\quad\times
+\left(\prod_{i=0}^{n-2}
+\left(\frac{a_{n-i}}{a_0}\right)^{k_i}\right)
+\mathcal{L}^{-1}
+\left\{
+\frac{
+s^{-(n-1)+\sum_{i=0}^{n-2}(i-(n-1))k_i}
+}{
+\left(s+\dfrac{a_1}{a_0}\right)^{m+1}
+}
+\right\}(t).
 \end{aligned}
 $$
+</div>
 
-For completeness, we recall that the auxiliary function $$\mathcal{E}_3(t)$$ arises directly from the analytical reduction of the point kinetics equation with a linear reactivity. It is defined as
+where:
 
 $$
-\mathcal{E}_3(t)
+a_0=1, \ \ a_k =
+\sum_{i_1=1}^{\,n-k+1}
+\sum_{i_2=i_1+1}^{\,n-k+2}
+\cdots \sum_{i_k=i_{k-1}+1}^{\,n}
+\prod_{j=1}^{k}\lambda_{i_j}.
+$$
+
+and where:
+
+$$
+E_{\alpha,\beta}(z)
 =
-\frac{1}{\sqrt{2a\Lambda}}
-\left[
-at + b - \beta + \frac{\Lambda\lambda}{2}
-\right],
-$$
-
-which is obtained after completing the square in the exponent of the transformed equation for $n(t)$. The function $B_{p,1}$ appearing in the third integral term of $$n(t)$$ follows analogously from the same reduction procedure and depends linearly on the parameters $$a$$, $$b$$, $$\beta$$, $$\Lambda$$, $$\lambda$$ and $$q$$, as detailed in the associated manuscript.
-
----
-
-## Delayed Neutron Precursor Concentration
-
-Once $$n(t)$$ is known, the concentration of delayed neutron precursors is obtained from
-
-$$
-C(t)
-= C(0)\,e^{-\lambda t}
-+ \frac{\beta}{\Lambda}\,e^{-\lambda t}
-\int_0^t e^{\lambda\tau}\,n(\tau)\,d\tau.
-$$
-
-The numerical implementation of this integral is described in the **Codes** section.
-
----
-
-## RK4 Reference System
-
-For validation purposes, a high-precision RK4 solver is applied directly to the NPKE system:
-
-$$
-\frac{dn}{dt}=\frac{\rho(t)-\beta}{\Lambda}\,n(t)+\lambda\,C(t)+q,
+\sum_{k=0}^{\infty}
+\frac{z^k}{\Gamma(\alpha k+\beta)},
 \qquad
-\frac{dC}{dt}=\frac{\beta}{\Lambda}\,n(t)-\lambda\,C(t),
+\Re(\alpha)>0,
+\quad z,\beta\in\mathbb{C},
 $$
 
-with the same ramp reactivity $$\rho(t)=at+b$$.  
+$$
+E_{\alpha,\beta}^{(m)}(z)
+=m!\sum_{k=0}^{\infty}\frac{\Gamma(k+m+1)}
+{\Gamma(m+1)\,k!\,\Gamma(\alpha k+\alpha m+\beta)}
+\,z^k=m!\,E_{\alpha,\beta+\alpha m}^{\,m+1}(z).
+$$
 
-Further details and numerical parameters are provided in the **Validation** page.
+Finally, this expression can be written in a more compact vectorial form:
+
+$$
+x_n(t)=
+\frac{x_1(0)}{a_0}
+\left(\prod_{j=1}^{n-1}\lambda_j\right)
+\sum_{\mathbf{k}\in\mathbb{N}_0^{\,n-1}}
+(-1)^{|\mathbf{k}|}
+\frac{\mathbf{c}^{\mathbf{k}}}{\mathbf{k}!}
+\,t^{\gamma(\mathbf{k})}
+E_{1,\beta(\mathbf{k})}^{(|\mathbf{k}|)}
+\bigl(-\mu t\bigr).
+$$
+
+---
+
+## Validation
+
+For further details on the high-precision numerical tests and the evaluation of relative errors for these solutions, please see the **Validation** page.
