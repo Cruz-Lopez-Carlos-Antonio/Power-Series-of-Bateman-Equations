@@ -1,5 +1,5 @@
-title: Neutron Point Kinetics with Ramp Reactivity
-description: Analytical and numerical solutions of the NPKE with a linear reactivity ramp
+title: Power Series of Bateman Equations
+description: A novel power-series solution of the Bateman equations using the Mittag-Leffler function
 theme: minima
 markdown: kramdown
 
@@ -14,5 +14,4 @@ exclude:
   - node_modules
   - vendor
 
-# Mantenemos las URLs con .html para que no haya sorpresas
 permalink: /:basename:output_ext
