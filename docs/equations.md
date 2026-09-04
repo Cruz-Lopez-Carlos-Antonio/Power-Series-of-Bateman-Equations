@@ -13,8 +13,10 @@ $$
 =\lambda_{i-1} x_{i-1}(t)-\lambda_i x_i(t), \qquad 1 \le i \le n,
 $$
 </div>
+
 which models the linear following decay chain:
-$$\begin{equation}
+
+$$
 x_1(t) \xrightarrow{\lambda_1} 
 x_2(t) \xrightarrow{\lambda_2} 
 \cdots 
@@ -96,7 +98,6 @@ E_{1,\beta(\mathbf{k})}^{(|\mathbf{k}|)}
 $$
 </div>
 ---
-w
 
 ## Validation
 
