@@ -3,11 +3,9 @@ layout: default
 title: Main Equations
 math: true
 ---
-# Overview of the methodology
-The present section contains the main equations used in the present work. Please, see the full manuscript for a more detailed description of them.
 
-## The Bateman Equations
-The system of differential equations describing the linear decay chain is given by:
+# The Bateman Equations
+The codes developed in the present repository solves the following system of differential equations:
 
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
@@ -15,6 +13,13 @@ $$
 =\lambda_{i-1} x_{i-1}(t)-\lambda_i x_i(t), \qquad 1 \le i \le n,
 $$
 </div>
+which models the linear following decay chain:
+$$\begin{equation}
+x_1(t) \xrightarrow{\lambda_1} 
+x_2(t) \xrightarrow{\lambda_2} 
+\cdots 
+\xrightarrow{\lambda_{n-1}} 
+x_n(t) \xrightarrow{\lambda_n}\cdots,$$
 
 Subject to the following initial conditions:
 $x_i(0)=0$, with $i=2,3,\dots,n$.
