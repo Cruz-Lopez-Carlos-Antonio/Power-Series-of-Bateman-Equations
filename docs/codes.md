@@ -1,12 +1,11 @@
 ---
 layout: default
-title: Python Codes
+title: MATLAB Codes
 ---
 
-## Overview of the Python Scripts
+## Overview of the MATLAB scripts
 
-The repository contains seven main Python 3 scripts.  
-They implement the analytical solution for $$n(t)$$ and the associated delayed neutron precursor concentration $$C(t)$$, both developed with the Modified Integration Method proposed in the submited paper. A RK4 reference solution, as well as the computational implementation of the Zhang et al. (2008) and the Palma et al. (2010) solutions. 
+The repository contains five MATLAB Codes. Two related to the new proposed power-series solution, which differs between them, because one uses a cache file where the Diophantinc solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other one computes them over fly. 
 
 ---
 
