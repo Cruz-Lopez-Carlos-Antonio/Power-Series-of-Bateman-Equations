@@ -20,10 +20,10 @@ They implement the analytical power-series solution of the Bateman equations usi
 </div>
 
 This script implements the optimized analytical solution using **MATLAB** and relies on Roberto Garrappa's algorithm for the Mittag-Leffler function evaluation.  
-The core characteristic of this implementation is the use of a precomputed cache file to load the non-negative Diophantine solutions, avoiding redundant combinatorial calculations. 
+This version uses the precomputed cache file to load the non-negative Diophantine solutions, avoiding redundant combinatorial calculations. 
 
 **Inputs:**  
-It receives physical and temporal parameters such as the half-lives vector (`half_lives`), the initial concentration (`x10`), and the evaluation time grid (`Time_vector`), alongside the preloaded `DioCache`[cite: 9].
+It receives physical and temporal parameters such as the half-lives vector (`half_lives`), the initial concentration (`x10`), and the evaluation time grid (`Time_vector`), alongside the preloaded `DioCache`.
 
 <div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
 <pre style="margin: 0; background: transparent; border: none;"><code>% Load precomputed Diophantine solutions
@@ -37,7 +37,7 @@ x10 = 6.023e23;</code></pre>
 </div>
 
 **Outputs:**  
-The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis[cite: 9].
+The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis.
 
 ---
 
@@ -49,14 +49,14 @@ The script outputs the computed concentration $X_n(t)$ corresponding to the fina
   </a>
 </div>
 
-This script provides a standalone, or **autonomous**, version of the analytical solution in **MATLAB**.  
-Unlike the optimized version, this script does *not* require an external cache file. Instead, it computes the combinations "on the fly" by generating the weak compositions for the Diophantine sum[cite: 11]:
+This script provides a standalone, or **autonomous**, version of the analytical solution given above.  
+Unlike the optimized version, this script does *not* require an external cache file. Instead, it computes the combinations "on the fly" by generating the weak compositions for the Diophantine sum:
 
 $$
 k_0 + k_1 + \dots + k_{p-1} = m, \qquad k_i \ge 0
 $$
 
-This combinatorial generation is achieved using a "stars and bars" approach directly within the code. While mathematically identical to the cached version, it provides high flexibility when external `.mat` files are not desired.
+This combinatorial generation is achieved using a "stars and bars" approach directly within the code. While mathematically identical to the cached version, it provides high flexibility when external `.mat` files are not desired or when the user requires studying linear chains with more than 15 nuclides. 
 
 **Inputs & Outputs:**  
-It receives the exact same inputs (`half_lives`, `x10`, `Time_vector`) but omits the dictionary loading procedure[cite: 8]. It yields the exact same concentration array $X_n(t)$ and outputs a text file named `Bateman_superposition_results_optimized_autonomous.txt`[cite: 8].
+It receives the exact same inputs (`half_lives`, `x10`, `Time_vector`) but omits the dictionary loading procedure. It yields the exact same concentration array $X_n(t)$ and outputs a text file named `Bateman_superposition_results_optimized_autonomous.txt`.
