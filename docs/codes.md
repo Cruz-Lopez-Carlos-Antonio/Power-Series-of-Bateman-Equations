@@ -9,6 +9,13 @@ math: true
 The repository contains five main MATLAB scripts. 
 They implement the analytical power-series solution of the Bateman equations using the Mittag-Leffler function. Specifically, two of these scripts are dedicated to the proposed analytical solution, differing fundamentally in their computational strategy: one uses a cache file where the non-negative Diophantine solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other computes them on the fly during execution.
 
+### ⚠️ Prerequisite: Mittag-Leffler Evaluation Code
+
+Please note that both of the proposed codes described, based on the power-series solution require the `ml.m` file to be located in the same directory for proper execution. This file contains the highly robust numerical implementation of the Mittag-Leffler function developed by Roberto Garrappa. You can download it directly from the MATLAB Central File Exchange:
+
+👉 <a href="https://www.mathworks.com/matlabcentral/fileexchange/48154-the-mittag-leffler-function" target="_blank" rel="noopener noreferrer">The Mittag-Leffler function by Roberto Garrappa</a>
+
+**Disclaimer:** *The `ml.m` script is the intellectual property of its author, Dr. Roberto Garrappa. When downloading and utilizing this code, please ensure you carefully read, adhere to, and respect the specific licensing terms and conditions established by Dr. Garrappa.*
 ---
 
 ### 1. `Power_series_mittag.m`
