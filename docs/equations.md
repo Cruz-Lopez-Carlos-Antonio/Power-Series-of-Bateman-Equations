@@ -69,19 +69,21 @@ $$
 and where the Mittag-Leffler function, $E_{\alpha,\beta}(z)$, is defined as
 
 $$
-E_{\alpha,\beta}(z)
-=
+E_{\alpha,\beta}(z)=
 \sum_{k=0}^{\infty}
 \frac{z^k}{\Gamma(\alpha k+\beta)},
 \qquad
 \Re(\alpha)>0,
 \quad z,\beta\in\mathbb{C}.
 $$
+
 For the case of the derivatives, the following formulation is used in the work
+
 $$
 E_{\alpha,\beta}^{(m)}(z)
 =m!\,E_{\alpha,\beta+\alpha m}^{\,m+1}(z).
 $$
+
 where $E_{\alpha,\beta}^{\gamma}(z)$ is the Prabhakar function. For the more details, see the related entro in this repository.
 Finally, this expression can be written in a more compact vectorial form, which is very convenient to the computational implementation:
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
