@@ -1,62 +1,62 @@
 ---
 layout: default
 title: MATLAB Codes
+math: true
 ---
 
-## Overview of the MATLAB scripts
+## Overview of the MATLAB Scripts
 
-The repository contains five MATLAB Codes. Two related to the new proposed power-series solution, which differs between them, because one uses a cache file where the Diophantinc solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other one computes them over fly. 
+The repository contains five main MATLAB scripts. 
+They implement the analytical power-series solution of the Bateman equations using the Mittag-Leffler function. Specifically, two of these scripts are dedicated to the proposed analytical solution, differing fundamentally in their computational strategy: one uses a cache file where the non-negative Diophantine solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other computes them on the fly during execution.
 
 ---
 
-### 1. `Neutron_density_SciPyNumPy.py`
-<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px;">
-  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Ramp_analytical_solution/blob/main/Neutron_density_SciPyNumPy.py" 
-     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold;">
+### 1. `Power_series_mittag.m`
+<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
+  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag.m" 
+     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
      👉 Click here to view the code in a new tab
   </a>
 </div>
 
-This script implements the analytical solution of the neutron density $$n(t)$$ using **SciPy** and **NumPy**.  
-The core of the implementation is based on the integral representation shown in the *Equations* page, where the involved integrals are evaluated using `scipy.integrate.quad`.
+This script implements the optimized analytical solution using **MATLAB** and relies on Roberto Garrappa's algorithm for the Mittag-Leffler function evaluation.  
+The core characteristic of this implementation is the use of a precomputed cache file to load the non-negative Diophantine solutions, avoiding redundant combinatorial calculations. 
 
-The script also contains a linear system, derived from the initial conditions $$n(0)$$ and $$\dot n(0)$$, to determine the constants $$K_1$$ and $$K_2$$ via a least-squares procedure (`numpy.linalg.lstsq`), including column-wise normalization for numerical stability.
+**Inputs:**  
+It receives physical and temporal parameters such as the half-lives vector (`half_lives`), the initial concentration (`x10`), and the evaluation time grid (`Time_vector`), alongside the preloaded `DioCache`[cite: 9].
+
+<div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
+<pre style="margin: 0; background: transparent; border: none;"><code>% Load precomputed Diophantine solutions
+load('dio_cache_p14_m5.mat','DioCache');
+
+% Example of physical parameters
+half_lives = [2,2,3,3,3,4,4,4,4];
+lambda = log(2) ./ half_lives;
+Time_vector = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100];
+x10 = 6.023e23;</code></pre>
+</div>
+
+**Outputs:**  
+The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis[cite: 9].
 
 ---
 
-### 2. `Neutron_density_mpmath.py`
-[Link to access to the code](https://github.com/Cruz-Lopez-Carlos-Antonio/Ramp_analytical_solution/blob/main/Neutron_density_mpmath.py)
-This script provides a **high-precision** version of the analytical solution for $$n(t)$$, implemented with **mpmath**.  
-It includes:
+### 2. `Power_series_mittag_autonomus.m`
+<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
+  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag_autonomus.m" 
+     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
+     👉 Click here to view the code in a new tab
+  </a>
+</div>
 
-- Multiprecision evaluation of the integrals $$I_1,\dots,I_6$$ described in the manuscript,
-- A robust $$2\times 2$$ linear solver with row/column scaling and Tikhonov regularization,
-- Control of the working precision through `mp.mp.dps`.
-
-This implementation is used as a benchmark to assess conditioning effects and to validate the double-precision results obtained with SciPy/NumPy.
-
----
-
-### 3. `C_precursor_SciPyNumPy.py`
-
-This script computes the delayed neutron precursor concentration $$C(t)$$ using the convolution formula
+This script provides a standalone, or **autonomous**, version of the analytical solution in **MATLAB**.  
+Unlike the optimized version, this script does *not* require an external cache file. Instead, it computes the combinations "on the fly" by generating the weak compositions for the Diophantine sum[cite: 11]:
 
 $$
-C(t)
-= C(0)\,e^{-\lambda t}
-+ \frac{\beta}{\Lambda}\,e^{-\lambda t}
-\int_0^t e^{\lambda\tau}\,n(\tau)\,d\tau.
+k_0 + k_1 + \dots + k_{p-1} = m, \qquad k_i \ge 0
 $$
 
-The integral is evaluated numerically using `scipy.integrate.cumulative_trapezoid`.  
-The function $$n(t)$$ is imported from `Neutron_density_SciPyNumPy.py`, and the script returns a vectorized approximation of $$C(t)$$ over a prescribed time grid.
+This combinatorial generation is achieved using a "stars and bars" approach directly within the code. While mathematically identical to the cached version, it provides high flexibility when external `.mat` files are not desired.
 
----
-
-### 4. `RK4_reference_mpmath.py`
-
-This script implements a **fourth–order Runge–Kutta (RK4)** solver in 32-digit precision (via mpmath) for the NPKE system.  
-
-It solves simultaneously for \(n(t)\) and \(C(t)\) using a fine time step, and the resulting numerical solution is used as a high-accuracy reference to validate the analytical formulations and their numerical implementation.
-
-Parameters, time step, and integration interval can be adjusted to reproduce the tables and figures reported in the manuscript.
+**Inputs & Outputs:**  
+It receives the exact same inputs (`half_lives`, `x10`, `Time_vector`) but omits the dictionary loading procedure[cite: 8]. It yields the exact same concentration array $X_n(t)$ and outputs a text file named `Bateman_superposition_results_optimized_autonomous.txt`[cite: 8].
