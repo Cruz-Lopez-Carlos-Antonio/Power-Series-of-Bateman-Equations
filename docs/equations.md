@@ -84,7 +84,16 @@ E_{\alpha,\beta}^{(m)}(z)
 =m!\,E_{\alpha,\beta+\alpha m}^{\,m+1}(z).
 $$
 
-where $E_{\alpha,\beta}^{\gamma}(z)$ is the Prabhakar function. For the more details, see the related entro in this repository.
+where $E_{\alpha,\beta}^{\gamma}(z)$ is the Prabhakar function, which is defined as:
+
+$$
+E_{\alpha,\beta}^{\,\gamma}(z)
+=\sum_{k=0}^{\infty}
+\frac{\Gamma(\gamma+k)}
+{\Gamma(\gamma)\,k!\,\Gamma(\alpha k+\beta)}
+\,z^k.$$
+
+For the more details, see the related entro in this repository.
 Finally, this expression can be written in a more compact vectorial form, which is very convenient to the computational implementation:
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
