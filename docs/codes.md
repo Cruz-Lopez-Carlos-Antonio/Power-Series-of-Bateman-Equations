@@ -36,6 +36,15 @@ Time_vector = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100];
 x10 = 6.023e23;</code></pre>
 </div>
 
+The default data belongs to the scheme proposed by Dreher, which considers the following linear chain:
+
+$$X_1(t) \to X_2(t) \to X_3(t) \to \cdots \to X_9(t),$$
+
+where:
+$$\lambda_1 = \lambda_2, \quad \lambda_3 = \lambda_4 = \lambda_5, \quad \text{and} \quad \lambda_6 = \cdots = \lambda_9,$$
+
+That is, a linear chain of nine nuclides, some of which share identical decay constants, resulting in only three distinct eigenvalues. Specifically, the assigned half-lives are $2$, $3$, and $4$ seconds (defining the decay constants as $\lambda_i = \ln(2)/T_{1/2,i}$), with multiplicities of 2, 3, and 4, respectively.
+
 **Outputs:**  
 The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis.
 
