@@ -57,8 +57,8 @@ That is, a linear chain of nine nuclides, some of which share identical decay co
 The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis.
 
 ---
+# 2. Power_series_mittag_autonomus.m
 
-## 2. `Power_series_mittag_autonomus.m`
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag_autonomus.m" 
      target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
