@@ -16,10 +16,11 @@ Please note that both of the proposed codes described, based on the power-series
 👉 <a href="https://www.mathworks.com/matlabcentral/fileexchange/48154-the-mittag-leffler-function" target="_blank" rel="noopener noreferrer">The Mittag-Leffler function by Roberto Garrappa</a>
 
 *Disclaimer:* 
+
 The `ml.m` script is the intellectual property of its author, Dr. Roberto Garrappa. When downloading and utilizing this code, please ensure you carefully read, adhere to, and respect the specific licensing terms and conditions established by Dr. Garrappa.
 ---
 
-# 1. `Power_series_mittag.m`
+# 1. Power_series_mittag.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag.m" 
