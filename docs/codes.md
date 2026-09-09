@@ -6,10 +6,11 @@ math: true
 
 ## Overview of the MATLAB Scripts
 
-The repository contains five main MATLAB scripts. 
-Two of them implement the analytical power-series solution of the Bateman equations using the Mittag-Leffler function, another two contains the analytical solution based on the Laplace method developed previously [referenciia 1], and the final one implements the solution developed by Velhinho et al. [referencia2[. 
-The first two codes based on the power-series solution, differing fundamentally in their computational strategy: one uses a cache file where the non-negative Diophantine solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other computes them on the fly during execution.
-The two codes who implement the Laplace transform use the same procedure, but a different digit-precisions: one of them use the VPA approach, and other one use the standard MATLAB precision. 
+The repository contains five main MATLAB scripts. Two of them implement the analytical power-series solution of the Bateman equations using the Mittag-Leffler function, another two contain the analytical solution based on the Laplace method developed previously [Reference 1], and the final one implements the solution developed by Velhinho et al. [Reference 2].
+
+The first two codes are based on the power-series solution and differ fundamentally in their computational strategy: one uses a cache file where the non-negative Diophantine solutions $k_0+k_1+\dots+k_{p-1}=m$ are precomputed, while the other computes them on the fly during execution.
+
+The two codes implementing the Laplace transform use the same procedure, but with different digit precisions: one utilizes the Variable-Precision Arithmetic (VPA) approach, and the other uses standard MATLAB precision.
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
@@ -20,7 +21,7 @@ Please note that both of the proposed codes, based on the power-series solution 
 👉 <a href="https://www.mathworks.com/matlabcentral/fileexchange/48154-the-mittag-leffler-function" target="_blank" rel="noopener noreferrer">The Mittag-Leffler function by Roberto Garrappa</a>
 
 Disclaimer: The `ml.m` script is the intellectual property of its author, Dr. Roberto Garrappa. When downloading and utilizing this code, please ensure you carefully read, adhere to, and respect the specific licensing terms and conditions established by Dr. Garrappa.
----
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
 ## 1. Power_series_mittag.m
 
@@ -60,7 +61,8 @@ That is, a linear chain of nine nuclides, some of which share identical decay co
 **Outputs:**  
 The script outputs the computed concentration $X_n(t)$ corresponding to the final isotope in the decay chain and automatically exports these results into a text file named `Bateman_superposition_results_optimized.txt` for further plotting or numerical analysis.
 
----
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
+
 # 2. Power_series_mittag_autonomus.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
