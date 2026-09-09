@@ -11,6 +11,8 @@ Two of them implement the analytical power-series solution of the Bateman equati
 The first two codes based on the power-series solution, differing fundamentally in their computational strategy: one uses a cache file where the non-negative Diophantine solutions $k_0+k_1+...+k_{p-1}=m$ are precomputed, while the other computes them on the fly during execution.
 The two codes who implement the Laplace transform use the same procedure, but a different digit-precisions: one of them use the VPA approach, and other one use the standard MATLAB precision. 
 
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
+
 ## ⚠️ Prerequisite: Mittag-Leffler Evaluation Code
 
 Please note that both of the proposed codes, based on the power-series solution require the `ml.m` file to be located in the same directory for proper execution. This file contains the highly robust numerical implementation of the Mittag-Leffler function developed by Roberto Garrappa. You can download it directly from the MATLAB Central File Exchange:
