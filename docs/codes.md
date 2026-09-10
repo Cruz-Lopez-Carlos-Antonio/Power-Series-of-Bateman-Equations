@@ -147,7 +147,7 @@ The script outputs the computed concentration $X_n(t)$ corresponding to the fina
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
-# 2. Power_series_mittag_autonomus.m
+## 2. Power_series_mittag_autonomus.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="[https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag_autonomus.m](https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Power_series_mittag_autonomus.m)" 
@@ -170,7 +170,7 @@ It receives the exact same inputs (`half_lives`, `x10`, `Time_vector`) but omits
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
-# 3. Bateman_reference_double_precision.m
+## 3. Bateman_reference_double_precision.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="[https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Bateman_reference_double_precision.m](https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Bateman_reference_double_precision.m)" 
