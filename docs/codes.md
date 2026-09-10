@@ -27,8 +27,8 @@ E_{\alpha,\beta}(z)=
 \Re(\alpha)>0,
 \quad z,\beta\in\mathbb{C}.
 $$
-<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
-
+</div>
+  
 For the case of the derivatives, the following formulation is used in the work:
 
 <div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
@@ -36,10 +36,12 @@ $$
 E_{\alpha,\beta}^{(m)}(z)
 =m!\,E_{\alpha,\beta+\alpha m}^{\,m+1}(z).
 $$
-<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
+</div>
+
 
 where $E_{\alpha,\beta}^{\gamma}(z)$ is the Prabhakar function, which is defined as:
 
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
 E_{\alpha,\beta}^{\,\gamma}(z)
 =\sum_{k=0}^{\infty}
@@ -92,9 +94,11 @@ t^{m+\beta-1}E_{1,\beta}^{(m)}
 \end{aligned}
 \end{equation}
 $$
+</div>
 
 where the coefficients $a_i$ depends on the lambda parameters as follows:
 
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
 $$
 a_0=1, \ \ a_k =
 \sum_{i_1=1}^{\,n-k+1}
