@@ -83,3 +83,43 @@ This combinatorial generation is achieved using a "stars and bars" approach dire
 
 **Inputs & Outputs:**  
 It receives the exact same inputs (`half_lives`, `x10`, `Time_vector`) but omits the dictionary loading procedure. It yields the exact same concentration array $X_n(t)$ and outputs a text file named `Bateman_superposition_results_optimized_autonomous.txt`.
+
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
+
+# 3. Bateman_reference_double_precision.m
+
+<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
+  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Bateman_reference_double_precision.m" 
+     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
+     👉 Click here to view the code in a new tab
+  </a>
+</div>
+
+This script solves the generalized Bateman equations by implementing the closed-form analytical solution for linear chains with repeated decay constants. This exact mathematical formulation was developed and simplified in the works by Cruz-López et al. [1, 2]. 
+
+The implementation evaluates the following analytical expression, which avoids nested summations and simplifies the combinatorial structure using Frobenius-type Diophantine equations (Cauchy products):
+
+$$
+X_N(t) = \frac{X_1(0)}{\lambda_N} \left( \prod_{k=1}^n \lambda_k^{\mu_k+1} \right) \sum_{i=1}^n \frac{\exp(-\lambda_i t)}{\prod_{\substack{j=1 \\ j \neq i}}^n (\lambda_j - \lambda_i)^{\mu_j+1}} \sum_{\ell=0}^{\mu_i} \frac{t^\ell}{\ell!} \chi_{i,\mu_i-\ell}
+$$
+
+where the coefficient $\chi_{i,r}$ is defined as:
+
+$$
+\chi_{i,r} = \sum_{h_1+\dots+h_{i-1}+h_{i+1}+\dots+h_n=r} \prod_{\substack{k=1 \\ k \neq i}}^n \binom{h_k+\mu_k}{\mu_k} \frac{1}{(\lambda_i-\lambda_k)^{h_k}}
+$$
+
+**Variables Description:**
+*   $X_N(t)$: Concentration of the $N$-th (final) nuclide in the decay chain at evaluation time $t$.
+*   $X_1(0)$: Initial concentration (number of atoms) of the first member of the chain.
+*   $n$: Number of distinct decay constants in the linear chain.
+*   $\lambda_i, \lambda_k$: The grouped distinct decay constants.
+*   $\mu_k$: Multiplicity parameter, meaning a specific decay constant appears $\mu_k+1$ times in the linear chain.
+*   $h_k$: Non-negative integers that satisfy the Diophantine sum condition for the restricted partitions.
+
+**Numerical Note:**  
+It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector`). However, it is important to note that this specific code intentionally utilizes standard IEEE MATLAB double precision. Consequently, for very small evaluation times, the output may exhibit a loss of numerical accuracy due to severe cancellation among large terms.
+
+**References:**
+1. Cruz-López, C.-A., Espinosa-Paredes, G., & François, J.-L. (2024). General solution of Bateman equations using Cauchy products and the Theory of Divided Differences. *Annals of Nuclear Energy, 207*, 110729 (p. 7).
+2. Cruz-López, C.-A., Jornet, M., Espinosa-Paredes, G., & François, J.-L. (2026). On the generalized summation of series with rational coefficients. *Computer Physics Communications, 325*, 110198 (p. 4).
