@@ -6,49 +6,26 @@ math: true
 
 ## Purpose
 
-The goal of this section is to document how the analytical solutions for \(n(t)\) and \(C(t)\) are validated against a high-precision numerical reference obtained with a fourth–order Runge–Kutta (RK4) method.
+The goal of this section is to document how the proposed analytical solutions are validated against exact reference standards to ensure their accuracy and reliability.
 
 ---
 
-## RK4 Reference Solver
+## Case 1. Dreher's scheme with short time values
 
-The script `RK4_reference_mpmath.py` integrates the NPKE system
-
-$$
-\frac{dn}{dt}=\frac{\rho(t)-\beta}{\Lambda}\,n(t)+\lambda\,C(t)+q,
-\qquad
-\frac{dC}{dt}=\frac{\beta}{\Lambda}\,n(t)-\lambda\,C(t),
-$$
-
-with \(\rho(t)=at+b\), using a sufficiently small time step and a working precision of 32 decimal digits.
-
-The initial conditions are
+To verify the proposed power-series solution, the scheme reported by Dreher is employed as a benchmark for systems with repeated roots[cite: 1]. This test problem consists of a linear chain of nine nuclides[cite: 1]:
 
 $$
-n(0) = \frac{q\,\Lambda}{|\rho(0)|}, \qquad
-C(0) = \frac{\beta}{\lambda\Lambda}\,n(0),
+X_1(t) \to X_2(t) \to X_3(t) \to \cdots \to X_9(t)
 $$
 
-corresponding to a stationary state at \(t=0\) for the initial reactivity value.
-
----
-
-## Error Measures
-
-To compare the analytical and numerical solutions, absolute percentage errors (APE) are computed, for example:
+where the decay constants satisfy the following conditions[cite: 1]:
 
 $$
-\operatorname{APE}_n(t_k)
-= 100\,\frac{\bigl|n_{\text{RK4}}(t_k)-n_{\text{analytic}}(t_k)\bigr|}
-               {\bigl|n_{\text{RK4}}(t_k)\bigr|},
+\lambda_1 = \lambda_2, \quad \lambda_3 = \lambda_4 = \lambda_5, \quad \text{and} \quad \lambda_6 = \cdots = \lambda_9
 $$
 
-and analogously for the precursor concentration \(C(t)\).
+Specifically, the assigned half-lives are 2, 3, and 4 seconds, with multiplicities of 2, 3, and 4, respectively[cite: 1]. Following Dreher's original setup, the initial concentration for the first member of the chain is established as $x_1(0) = 6.023 \times 10^{23}$ atoms, with all subsequent nuclides being initially absent[cite: 1]. 
 
-Tables similar to those reported in the manuscript can be reproduced by:
+The results obtained from the Mittag-Leffler function-based formulation are compared against an exact analytical reference previously derived via the Laplace transform method, confirming excellent agreement without detailing the asymptotic decay behavior extensively here[cite: 1].
 
-1. Running `RK4_reference_mpmath.py` to generate the reference solution.
-2. Running `Neutron_density_SciPyNumPy.py` and `C_precursor_SciPyNumPy.py` for the same time grid.
-3. Computing the APE values and exporting them to a CSV or LaTeX table.
-
-Further details on the numerical tests (ramp parameters, time grids and tolerance values) can be found in the article.
+👉 <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Verification/Complete_tables_verification.txt" target="_blank" rel="noopener noreferrer">Complete verification tables for Dreher's scheme</a>
