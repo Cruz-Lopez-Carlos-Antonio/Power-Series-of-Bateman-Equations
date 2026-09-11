@@ -235,7 +235,7 @@ It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
-# 4. Bateman_reference_multiprecision_.m
+## 4. Bateman_reference_multiprecision_.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Bateman_reference_multiprecision_.m" 
