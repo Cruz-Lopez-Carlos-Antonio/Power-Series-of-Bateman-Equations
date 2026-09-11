@@ -235,6 +235,24 @@ It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
+**Inputs & Initial Conditions:**  
+This script uses standard arrays for the physical parameters and the initial concentration of the first nuclide.
+
+<div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
+<pre style="margin: 0; background: transparent; border: none; font-family: monospace; color: #333;">
+% Physical parameters
+Half_lifes = [2, 2, 3, 3, 3, 4];
+D = log(2) ./ Half_lifes;
+
+% Evaluation time grid
+Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
+               0.006, 0.007, 0.008, 0.009, 0.010];
+
+% Initial number of atoms in the first member of the chain
+X0 = 6.023e23;
+</pre>
+</div>
+
 ## References
 1. Cruz-López, C.-A., Espinosa-Paredes, G., & François, J.-L. (2024). General solution of Bateman equations using Cauchy products and the Theory of Divided Differences. *Annals of Nuclear Energy, 207*, 110729 (p. 7).
 2. Cruz-López, C.-A., Jornet, M., Espinosa-Paredes, G., & François, J.-L. (2026). On the generalized summation of series with rational coefficients. *Computer Physics Communications, 325*, 110198 (p. 4).
