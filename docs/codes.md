@@ -212,6 +212,24 @@ $$
 *   $\mu_k$: Multiplicity parameter, meaning a specific decay constant appears $\mu_k+1$ times in the linear chain.
 *   $h_k$: Non-negative integers that satisfy the Diophantine sum condition for the restricted partitions.
 
+**Inputs & Initial Conditions:**  
+This script uses standard arrays for the physical parameters and the initial concentration of the first nuclide.
+
+<div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
+<pre style="margin: 0; background: transparent; border: none; font-family: monospace; color: #333;">
+% Physical parameters
+Half_lifes = [2, 2, 3, 3, 3, 4];
+D = log(2) ./ Half_lifes;
+
+% Evaluation time grid
+Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
+               0.006, 0.007, 0.008, 0.009, 0.010];
+
+% Initial number of atoms in the first member of the chain
+X0 = 6.023e23;
+</pre>
+</div>
+
 **Numerical Note:**  
 It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector`). However, it is important to note that this specific code intentionally utilizes standard IEEE MATLAB double precision. Consequently, for very small evaluation times, the output may exhibit a loss of numerical accuracy due to severe cancellation among large terms.
 
