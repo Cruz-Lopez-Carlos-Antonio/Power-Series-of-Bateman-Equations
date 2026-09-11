@@ -55,7 +55,7 @@ Such module was developed by Roberto Garrappa. You can download it directly from
 
 👉 <a href="[https://www.mathworks.com/matlabcentral/fileexchange/48154-the-mittag-leffler-function](https://www.mathworks.com/matlabcentral/fileexchange/48154-the-mittag-leffler-function)" target="_blank" rel="noopener noreferrer">The Mittag-Leffler function by Roberto Garrappa</a>
 
-Disclaimer: The `ml.m` script is the intellectual property of its author, Dr. Roberto Garrappa. When downloading and utilizing this code, please ensure you carefully read, adhere to, and respect the specific licensing terms and conditions established by Dr. Garrappa.
+Disclaimer: The `ml.m` script is the intellectual property of its author, Dr. Roberto Garrappa. When downloading and utilizing this code, please ensure you carefully read, adhere to, and respect the specific licensing terms and conditions established by its author.
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
