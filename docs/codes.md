@@ -235,21 +235,66 @@ It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
+
+# 4. Velhinho_code_16_precision.m
+
+<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
+  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Velhino_code_16_precision.m" 
+     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
+     👉 Click here to view the code in a new tab
+  </a>
+</div>
+
+This script implements the exact analytical solution for linear decay chains with repeated eigenvalues developed by Velhinho, Fonseca, and Serôdio [3]. Building upon earlier computational advancements, this approach adopts the structural concept—originally highlighted by Dreher—of separating the solution into distinct terms (exponential and polynomial parts) to efficiently handle degeneracies.
+
+The main routine evaluates the general analytical expression, valid for arbitrary initial conditions, defined as follows:
+
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
+$$
+N_n(t) = N_n(0) e^{-\lambda_n t} + \sum_{\substack{k=1 \\ \beta_k \neq \lambda_n}}^{\tilde{n}} A_{k0} \left(e^{-\beta_k t} - e^{-\lambda_n t}\right) + \sum_{\substack{k=1 \\ \mu_k \neq 0}}^{\tilde{n}} e^{-\beta_k t} \sum_{m=1}^{\mu_k} t^m A_{km}
+$$
+</div>
+
+where the integration constants $A_{km}$ are computed through the following relation:
+
+<div style="background:#f7f7f7; padding:15px; border-left:4px solid #4a90e2; border-radius:6px; margin:20px 0;">
+$$
+A_{km} = \frac{1}{m!} \sum_{\ell=1}^{\kappa_{km}} N_\ell(0) \left(\prod_{i=\ell}^{n-1} \nu_i\right) \left( \prod_{\substack{j=\ell \\ \lambda_j \neq \beta_k}}^n (\lambda_j - \beta_k)^{-1} \right) \sum_{(p_1,\dots,p_{g_{k\ell}^m})} \prod_{r=1}^{g_{k\ell}^m} (\beta_k - \lambda_{p_r})^{-1}
+$$
+</div>
+
+**Variables Description:**
+*   $N_n(t)$: Population of the $n$-th nuclide at time $t$.
+*   $N_\ell(0)$: Arbitrary initial conditions for the nuclides in the chain.
+*   $\lambda_n, \lambda_j$: The complete sequence of decay constants.
+*   $\beta_k$: The subsequence of *distinct* decay constants.
+*   $\mu_k$: Multiplicity of the distinct eigenvalue $\beta_k$ minus one.
+*   $\nu_i$: Coupling constants (accounting for branching ratios).
+*   $\kappa_{km}$: Position of the last appearance of $\beta_k$ in the full sequence $\lambda$.
+*   $g_{k\ell}^m$: Combinatorial upper limit defined as $g_{k\ell} - 1 - m$, where $g_{k\ell}$ is the number of times $\beta_k$ appears in the subsequence $[\lambda_\ell, \dots, \lambda_n]$.
+
 **Inputs & Initial Conditions:**  
-This script uses standard arrays for the physical parameters and the initial concentration of the first nuclide.
+In the computational implementation, the initial conditions are set by defining the initial population $X_0$ for the first member, initializing the remainder of the array `N0` to zero, and defining the distinct sets for decay constants `L` and coupling constants `Nu`.
 
 <div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
 <pre style="margin: 0; background: transparent; border: none; font-family: monospace; color: #333;">
-% Physical parameters
+% Example of physical parameters
+X0 = 6.023e23;
 Half_lifes = [2, 2, 3, 3, 3, 4];
-D = log(2) ./ Half_lifes;
+DC = log(2) ./ Half_lifes;
+
+% Decay and coupling constants arrays
+L  = DC;
+Nu = DC(1:end-1);
+
+% Initial conditions array setup
+N0 = zeros(1, length(DC));
+N0(1) = X0;
 
 % Evaluation time grid
 Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
                0.006, 0.007, 0.008, 0.009, 0.010];
-
-% Initial number of atoms in the first member of the chain
-X0 = 6.023e23;
 </pre>
 </div>
 
