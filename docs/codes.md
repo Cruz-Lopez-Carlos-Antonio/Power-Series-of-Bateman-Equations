@@ -235,7 +235,44 @@ It receives the exact same initial parameters (`half_lives`, `x10`, `Time_vector
 
 <hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
 
-## 4. Velhinho_code_16_precision.m
+# 4. Bateman_reference_multiprecision_.m
+
+<div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
+  <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Bateman_reference_multiprecision_.m" 
+     target="_blank" style="font-size:16px; color:#22577a; font-weight:bold; text-decoration:none;">
+     👉 Click here to view the code in a new tab
+  </a>
+</div>
+
+This script provides a multiprecision version of the exact analytical solution developed by Cruz-López et al. [1, 2] for linear chains with repeated decay constants. 
+
+Unlike the standard double-precision version, this implementation applies **selective Variable-Precision Arithmetic (VPA)**. Rather than converting the entire script to symbolic objects, the integer combinatorial structure (such as the restricted integer partitions) is kept in standard MATLAB arithmetic. The VPA is strictly applied only to the numerically delicate operations—like products, sums, and exponential evaluations—where severe cancellation and round-off errors can occur at very small evaluation times.
+
+**Inputs & Outputs:**  
+It receives the exact same physical parameters (`Half_lifes`, `X0`, `Time_vector`), but introduces a specific variable `mp_digits` to control the exact number of significant decimal digits used by the MATLAB symbolic arithmetic. The script yields the concentration array and outputs a text file named `Bateman_GPS_results_multiprecision.txt`, preserving the high-precision results without machine round-off.
+
+<div style="background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #4a90e2; border-radius:4px; padding:10px; margin-bottom:15px; overflow-x:auto;">
+<pre style="margin: 0; background: transparent; border: none; font-family: monospace; color: #333;">
+% Number of significant decimal digits used by MATLAB symbolic arithmetic.
+mp_digits = 16;
+digits(mp_digits);
+
+% Example of physical parameters
+Half_lifes = [2, 2, 3, 3, 3, 4];
+D = log(2) ./ Half_lifes;
+
+% Evaluation time grid
+Time_vector = [0.001, 0.002, 0.003, 0.004, 0.005, ...
+               0.006, 0.007, 0.008, 0.009, 0.010];
+
+% Initial number of atoms/nuclei in the first member of the chain
+X0 = 6.023e23;
+</pre>
+</div>
+
+<hr style="border: none; border-top: 3px solid #3b5998; margin: 1.5rem 0;">
+
+## 5. Velhinho_code_16_precision.m
 
 <div style="padding:8px; border-left:4px solid #3c6e71; margin-bottom:10px; background-color:#f9f9f9;">
   <a href="https://github.com/Cruz-Lopez-Carlos-Antonio/Power-Series-of-Bateman-Equations/blob/main/Velhino_code_16_precision.m" 
